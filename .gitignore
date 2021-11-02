@@ -1,7 +1,8 @@
 ### PROJECT SPECIFIC ###
-.venv/*
+.venv/
 
-raw_data/*
+imgs/
+raw_data/
 Bleualign/
 grobid_client_python/
 
