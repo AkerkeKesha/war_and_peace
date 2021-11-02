@@ -2,6 +2,8 @@
 .venv/*
 
 raw_data/*
+Bleualign/
+grobid_client_python/
 
 
 ### JupyterNotebooks ###
