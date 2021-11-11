@@ -14,7 +14,12 @@ BLACKLIST = [
     'input',
     'script',
     'style',
-    # there may be more elements to skip
+    'h1',
+    'h2',
+    'h3',
+    'h4',
+    'h5',
+    'sup',
 ]
 
 
