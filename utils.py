@@ -1,8 +1,9 @@
 import os
-import re
+import spacy
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
-SENTENCE_PATTERN = r"[A-Z].*?[\.!?]"
+nlp = spacy.load('ru_core_news_sm', disable=['ner'])
+nlp.add_pipe("sentencizer")
 
 
 def get_raw_file(dirname: str, filename: str) -> str:
@@ -17,7 +18,8 @@ def get_clean_file(filename: str) -> str:
     return os.path.join(ROOT_DIR, 'data', filename)
 
 
-def make_sentence_per_line(s: str) -> str:
-    for match in re.findall(SENTENCE_PATTERN, s):
-        s = re.sub(match, f'{match}\n', s)
-    return s
+def chapter_sentencizer(chapter):
+    doc = nlp(chapter)
+    sentences = [str(sent).strip() for sent in doc.sents]
+    text = '\n'.join(sentences)
+    return text
