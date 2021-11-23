@@ -9,7 +9,7 @@ def get_raw_file(dirname: str, filename: str) -> str:
     return os.path.join(ROOT_DIR, 'raw_data', dirname, filename)
 
 
-def get_sample_file(filename: str ='sourcetext.txt') -> str:
+def get_sample_file(filename: str) -> str:
     return os.path.join(ROOT_DIR, 'sample', filename)
 
 
