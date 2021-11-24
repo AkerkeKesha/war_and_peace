@@ -1,7 +1,7 @@
 from typing import List
 import ebooklib
 from ebooklib import epub
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, Comment
 
 
 BLACKLIST = [
@@ -35,7 +35,7 @@ def get_epub_chapters(epub_path: str) -> List[bytes]:
 def chap2text(chap: bytes) -> str:
     output = ''
     soup = BeautifulSoup(chap, 'html.parser')
-    text = soup.find_all(text=True)
+    text = [t for t in soup.find_all(text=True) if not isinstance(t, Comment)]
     for t in text:
         if t.parent.name not in BLACKLIST:
             output += '{} '.format(t)
