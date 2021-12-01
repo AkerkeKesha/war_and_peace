@@ -23,3 +23,17 @@ def chapter_sentencizer(chapter):
     sentences = [str(sent).strip() for sent in doc.sents]
     text = '\n'.join(sentences)
     return text
+
+
+def find_required_paragraph(chapter, start_text, end_text):
+    '''
+    Used for ground truth vs reference paragraph WER calculation
+    :param chapter:
+    :param start_text:
+    :param end_text:
+    :return:
+    '''
+    start_index = chapter.find(start_text)
+    end_index = chapter.find(end_text)
+    length = len(end_text)
+    return chapter[start_index: end_index + length]
