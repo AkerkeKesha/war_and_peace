@@ -51,6 +51,14 @@ grobid_client --input ./raw_data/0.tolstoy processFulltextDocument
 ```
 
 
+```bash
+pip install -U pip setuptools wheel
+pip install -U spacy
+python -m spacy download en_core_web_sm
+python -m spacy download fr_core_news_sm
+python -m spacy download ru_core_news_sm
+```
+
 
 ##### References:
 - [Bleualign](https://github.com/rsennrich/Bleualign)
