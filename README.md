@@ -39,6 +39,12 @@ python3 ./Bleaualign/setup.py install
 ```bash
 ./Bleualign/bleualign.py -s ./data/0.tolstoy.txt -t ./data/5.maude.txt --srctotarget ./data/tolstoy_translated.txt -o outputfile
 ```
+I had fix manually the French text:
+```bash
+./Bleualign/bleualign.py -s ./data/0.tolstoy.txt -t ./data/5.maude.txt --srctotarget ./data/manually_fixed.txt -o ./data/secondtrial
+```
+
+
 #### Clone and setup GROBID lib in order to identify footnotes, text, etc
 in a separate terminal window, run GROBID service:
 
