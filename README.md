@@ -1,6 +1,8 @@
-##War and Peace: Master Thesis
+## War and Peace: Master Thesis
 Master Thesis on analysis of Tolstoy work: War and Peace.
-Goal: detect passages about enemy and identify sentiments against/for the enemy.
+Goal: 
+- detect passages about enemy 
+- identify sentiments against/for the enemy.
 
 #### Setup Local Environment
 
@@ -44,19 +46,7 @@ I had fix manually the French text:
 ./Bleualign/bleualign.py -s ./data/0.tolstoy.txt -t ./data/5.maude.txt --srctotarget ./data/manually_fixed.txt -o ./data/secondtrial
 ```
 
-
-#### Clone and setup GROBID lib in order to identify footnotes, text, etc
-in a separate terminal window, run GROBID service:
-
-```bash
-./gradlew run
-```
-
-```bash
-grobid_client --input ./raw_data/0.tolstoy processFulltextDocument
-```
-
-
+Commands for spacy models
 ```bash
 pip install -U pip setuptools wheel
 pip install -U spacy
@@ -68,4 +58,3 @@ python -m spacy download ru_core_news_sm
 
 ##### References:
 - [Bleualign](https://github.com/rsennrich/Bleualign)
-- [GROBID](https://github.com/kermitt2/grobid_client_python)
