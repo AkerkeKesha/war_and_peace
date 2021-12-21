@@ -6,16 +6,15 @@ if torch.cuda.is_available():
   dev = "cuda"
 else:
   dev = "cpu"
-device = torch.device(dev)
+DEVICE = torch.device(dev)
 
 MODEL_RU_EN = 'Helsinki-NLP/opus-mt-ru-en'
 TOKENIZER = MarianTokenizer.from_pretrained(MODEL_RU_EN)
-MODEL = MarianMTModel.from_pretrained(MODEL_RU_EN)
-MODEL.to(device)
+MODEL = MarianMTModel.from_pretrained(MODEL_RU_EN).to(DEVICE)
 
 
-def marian_translate(texts: List[str], model=MODEL, tokenizer=TOKENIZER) -> List[str]:
-    translated = model.generate(**tokenizer(texts, return_tensors="pt", padding=True)).to(device)
+def marian_translate(texts: List[str], model=MODEL, tokenizer=TOKENIZER, device=DEVICE) -> List[str]:
+    translated = model.generate(**tokenizer(texts, return_tensors="pt", padding=True).to(device)).to(device)
     translated_sentences = [tokenizer.decode(t, skip_special_tokens=True) for t in translated]
     return translated_sentences
 
