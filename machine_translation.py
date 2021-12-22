@@ -1,5 +1,6 @@
 from typing import List
 import torch
+import math
 from transformers import MarianMTModel, MarianTokenizer
 
 if torch.cuda.is_available():
@@ -11,10 +12,17 @@ DEVICE = torch.device(dev)
 MODEL_RU_EN = 'Helsinki-NLP/opus-mt-ru-en'
 TOKENIZER = MarianTokenizer.from_pretrained(MODEL_RU_EN)
 MODEL = MarianMTModel.from_pretrained(MODEL_RU_EN).to(DEVICE)
+BATCH_SIZE = 24
 
 
 def marian_translate(texts: List[str], model=MODEL, tokenizer=TOKENIZER, device=DEVICE) -> List[str]:
-    translated = model.generate(**tokenizer(texts, return_tensors="pt", padding=True).to(device)).to(device)
+    batches = math.ceil(len(texts) / BATCH_SIZE)
+    translated = []
+    for i in range(batches):
+        sentence_batch = texts[i * BATCH_SIZE:(i + 1) * BATCH_SIZE]
+        translated_batch = model.generate(**tokenizer(sentence_batch, return_tensors="pt", padding=True).to(device)).to(
+            device)
+        translated += translated_batch
     translated_sentences = [tokenizer.decode(t, skip_special_tokens=True) for t in translated]
     return translated_sentences
 
