@@ -39,7 +39,7 @@ python3 ./Bleaualign/setup.py install
 ```
 7 - Run actual 
 ```bash
-./Bleualign/bleualign.py -s ./data/0.tolstoy.txt -t ./data/5.maude.txt --srctotarget ./data/tolstoy_translated.txt -o outputfile
+./Bleualign/bleualign.py -s ./data/0.tolstoy.txt -t ./data/5.maude.txt --srctotarget ./data/tolstoy_translated.txt -o ./data/outputfile
 ```
 I had fix manually the French text:
 ```bash
