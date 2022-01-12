@@ -38,7 +38,7 @@ if __name__ == '__main__':
         sample = fh.read()
     tolstoy_translated = marian_translate(sample)
     for sentence in tolstoy_translated:
-        with open('./data/test_translated_passage_enemy.txt', 'a') as fh:
+        with open('./data/translated_passage_enemy.txt', 'a') as fh:
             fh.write(f"{sentence}\n")
     print("done translating")
 
