@@ -46,6 +46,10 @@ I had fix manually the French text:
 ./Bleualign/bleualign.py -s ./data/0.tolstoy.txt -t ./data/5.maude.txt --srctotarget ./data/manually_fixed.txt -o ./data/secondtrial
 ```
 
+Feed in both ru and fr to eng translations:
+```bash
+./Bleualign/bleualign.py -s ./data/0.tolstoy.txt -t ./data/5.maude.txt --srctotarget ./data/tolstoy_translated.txt  --srctotarget ./data/tolstoy_translated_fr_en.txt -o ./data/thirdtrial
+```
 Commands for spacy models
 ```bash
 pip install -U pip setuptools wheel
