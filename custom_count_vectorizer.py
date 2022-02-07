@@ -5,7 +5,7 @@ from scipy.sparse import csr_matrix
 
 class CustomCV:
 
-    def cv_fit(self, data) -> int:
+    def fit(self, data) -> int:
         """return index for given text"""
         unique_words = set()
         for sentence in data:
@@ -18,9 +18,9 @@ class CustomCV:
             vocab[word] = index
         return vocab
 
-    def cv_fit_transform(self, data):
-        vocabulary = self.cv_fit(data)
-        row, col, val = [],[],[]
+    def fit_transform(self, data):
+        vocabulary = self.fit(data)
+        row, col, val = [], [], []
         for sentence_id, sentence in enumerate(data):
             count_word = dict(Counter(sentence.split(" ")))
             for word, count in count_word.items():
