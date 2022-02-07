@@ -73,7 +73,7 @@ class CustomMNB:
         for doc in Xtest:
             log_prob_a = log_prob_b = 0.0
             tokens = self._tokenize(doc)
-            for word, pw_a, pw_b in self.word_probas:
+            for word, pw_a, pw_b in self.word_probs:
                 if word in tokens:
                     log_prob_a += np.exp(pw_a)
                     log_prob_b += np.exp(pw_b)
