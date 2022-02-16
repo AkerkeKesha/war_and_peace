@@ -2,7 +2,7 @@ from Bleualign.bleualign.align import Aligner
 
 src_file = './sample/tolstoy.ru.txt'
 target_file = './sample/maude.eng.txt'
-src_to_target = './sample/ru.eng.txt'
+src_to_target = './sample/google-translate.ru.eng.txt'
 output_src_file = './sample/ru.aligned.txt'
 output_target_file = './sample/eng.aligned.txt'
 
