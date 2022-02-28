@@ -3,11 +3,11 @@
 
 imgs/
 raw_data/
-Bleualign/
+# Bleualign/
 grobid_client_python/
 # sample/
 data/
-
+Corpus-Charles-Bruneau/
 
 ### Google colab
 __pycache__/
